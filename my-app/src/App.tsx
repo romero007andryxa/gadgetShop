@@ -1,13 +1,14 @@
-import { AppBar } from "@mui/material";
+// import { AppBar } from "@mui/material";
 import "./App.css";
 import SearchBar from "./widgets/searchBar/searchBar";
+import AppBarCustom from "./widgets/appBar/appBar"
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {/* <AppBar /> */}
-                <SearchBar />
+                <AppBarCustom />
+                {/* <SearchBar /> */}
             </header>
         </div>
     );
