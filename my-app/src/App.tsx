@@ -3,6 +3,9 @@ import "./App.css";
 import SearchBar from "./widgets/searchBar/searchBar";
 import AppBarCustom from "./widgets/appBar/appBar";
 import HeroBanner from "./sections/heroBanner/HeroBanner";
+import ImpressionCard from "./widgets/impressionCard/impressionCard";
+import WidgetsIcon from "@mui/icons-material/Widgets";
+import MainSection from "./sections/mainSection/MainSection";
 
 function App() {
     return (
@@ -12,6 +15,7 @@ function App() {
             </header>
             <main>
                 <HeroBanner />
+                <MainSection />
             </main>
         </div>
     );

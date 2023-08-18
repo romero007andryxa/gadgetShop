@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material";
-import { IStyle } from "../../entities/IStyle";
+import { IStyle } from "../../entities/Stylization";
 
 const BoxIconWrapperStyle: IStyle = {
     padding: 2,

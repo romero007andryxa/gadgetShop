@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import SearchBar from "../../widgets/searchBar/searchBar";
 
-import { IStyle } from "../../entities/IStyle";
+import { IStyle } from "../../entities/Stylization";
 import {
     TypographyStyle,
     SearchBarStyle,

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
 
-import { IStyle } from "../../entities/IStyle";
+import { IStyle } from "../../entities/Stylization";
 import {
     BoxStyle,
     BoxIconWrapperStyle,
