@@ -1,9 +1,5 @@
 import { Theme } from "@mui/material";
-import { CSSProperties } from "react";
-
-interface IStyle {
-    [property: string]: string | number | object;
-}
+import { IStyle } from "../../entities/IStyle";
 
 const BoxIconWrapperStyle: IStyle = {
     padding: 2,

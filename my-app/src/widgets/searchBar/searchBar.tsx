@@ -1,10 +1,9 @@
-import { CSSProperties } from "react";
-import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
 
+import { IStyle } from "../../entities/IStyle";
 import {
     BoxStyle,
     BoxIconWrapperStyle,
@@ -13,8 +12,7 @@ import {
 } from "./styles";
 
 interface Props {
-    style?: CSSProperties;
-    // [cssProperty: string]: string;
+    style?: IStyle;
 }
 
 const SearchBar: React.FC<Props> = (props) => {
