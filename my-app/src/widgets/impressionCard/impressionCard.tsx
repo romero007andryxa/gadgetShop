@@ -10,19 +10,22 @@ import {
     TypographySubTitleStyle,
 } from "./styles";
 
-interface Props extends IMaterialIcon {
+interface Props {
+    icon: React.ElementType;
     style?: IStyle;
     subtitle: string;
     description: string;
 }
 
 const ImpressionCard: React.FC<Props> = (props) => {
+    const Icon = props.icon;
+
     return (
         <Card sx={[CardStyle, { ...props.style }]}>
             <Grid container sx={{ height: "100%" }} justifyContent="start">
                 <Grid item>
                     <CardContent sx={{ pl: 3, pr: 0 }}>
-                        <props.icon sx={{ fontSize: 60 }} color="primary" />
+                        <Icon sx={{ fontSize: 60 }} color="primary" />
                     </CardContent>
                 </Grid>
                 <Grid item>

@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import ImpressionCard from "../../widgets/impressionCard/impressionCard";
+import SidebarCategories from "../../widgets/sidebarCategories/SidebarCategories";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -35,6 +36,7 @@ const MainSection = () => {
                     description="100% secured"
                 />
             </Grid>
+            <SidebarCategories />
         </Container>
     );
 };
