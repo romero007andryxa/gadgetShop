@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
@@ -11,10 +12,15 @@ import {
     ButtonStyle,
 } from "./styles";
 
-const SearchBar = () => {
+interface Props {
+    style?: CSSProperties;
+    // [cssProperty: string]: string;
+}
+
+const SearchBar: React.FC<Props> = (props) => {
     return (
         <>
-            <Box sx={BoxStyle}>
+            <Box sx={[BoxStyle, { ...props.style }]}>
                 <Box sx={BoxIconWrapperStyle}>
                     <SearchIcon />
                 </Box>

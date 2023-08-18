@@ -1,6 +1,11 @@
 import { Theme } from "@mui/material";
+import { CSSProperties } from "react";
 
-const BoxIconWrapperStyle = {
+interface IStyle {
+    [property: string]: string | number | object;
+}
+
+const BoxIconWrapperStyle: IStyle = {
     padding: 2,
     height: "60px",
     position: "absolute",
@@ -10,7 +15,7 @@ const BoxIconWrapperStyle = {
     justifyContent: "center",
 };
 
-const BoxStyle = {
+const BoxStyle: IStyle = {
     boxShadow: "0px 8px 45px 0px rgba(3, 0, 71, 0.09)",
     margin: 2,
     width: "648px",
@@ -23,7 +28,7 @@ const BoxStyle = {
     borderRadius: 2,
 };
 
-const InputBaseStyle = {
+const InputBaseStyle: IStyle = {
     height: "60px",
     width: "100%",
     color: "inherit",
@@ -36,7 +41,7 @@ const InputBaseStyle = {
     },
 };
 
-const ButtonStyle = {
+const ButtonStyle: IStyle = {
     borderRadius: "0px 8px 8px 0px",
     height: "60px",
     width: "130px",
