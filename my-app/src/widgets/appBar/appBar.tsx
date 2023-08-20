@@ -1,101 +1,110 @@
-import { styled, alpha } from '@mui/material/styles';
-import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import Grid from '@mui/material/Grid';
+import { AppBar,
+  Toolbar, 
+  Typography, 
+  Grid, 
+  Link, 
+  Stack,  
+  Button,
+  Menu,
+  MenuItem,
+  IconButton
+} 
+from "@mui/material";
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import { useState } from 'react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import Link from '@mui/material/Link';
-import IconButton from "@mui/material/IconButton";
-import {List, ListItem, ListItemButton, ListItemIcon, ListItemText, Collapse} from '@mui/material';
 
+export const MuiNavBar = () => {
+  const [resourcesAnchorEl, setResourcesAnchorEl] = useState<null | HTMLElement>(null);
+  const resourcesMenuOpen = Boolean(resourcesAnchorEl);
+  const [accountAnchorEl, setAccountAnchorEl] = useState<null | HTMLElement>(null);
+  const accountMenuOpen = Boolean(accountAnchorEl);
+  
+  const handleResourcesClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setResourcesAnchorEl(event.currentTarget);
+  };
 
-const AppBarCustom = () => { 
-    const array = ['First', 'Second', 'Third'];
-    const [open, setOpen] = useState(false);
-    return (
-    <Grid container alignItems={'center'} sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{height: '80px', boxShadow: 'none'}}>
+  const handleAccountClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAccountAnchorEl(event.currentTarget);
+  };
 
-        <Toolbar sx={{height: '80px', width: '1200px', margin: '0 auto'}}>
-          <Link href="#" underline='none' sx={{color: 'white'}}>
-            <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' }, fontSize: '26px'}}
-          >
+  const handleClose = () => {
+    setResourcesAnchorEl(null);
+    setAccountAnchorEl(null);
+  }
+  return (
+    <AppBar position="static">
+      <Toolbar sx={{height: '80px'}}>
+        <Grid container justifyContent={'space-between'}>
+          <Grid container alignItems={'center'} justifyContent={'space-between'} width={'185px'}>
+            <StorefrontIcon aria-label='logo' color='inherit'/>
+            <Link href="#" underline='none' sx={{color: 'white'}}>
+            <Typography variant="h6" component="div" sx={{fontSize: '26px', flexGrow: 1}}>
             Gadget Shop
-          </Typography>
-          </Link>
+            </Typography>
+          </Link>        
+        </Grid>
+          <Stack direction={'row'} spacing={2}>
+            <Button color="inherit">Features</Button>
+            <Button color="inherit">Pricing</Button>
+            <Button color="inherit">About</Button>
+            <Button color="inherit" 
+            id="resources-button" 
+            onClick={handleResourcesClick} 
+            aria-controls={resourcesMenuOpen ? 'resources-menu' : undefined}
+            aria-haspopup='true'
+            aria-expanded={resourcesMenuOpen ? 'true' : undefined}
+            >Resources
+            <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+            </Button>
+          </Stack>
+          <Menu id="resources-menu" 
+          anchorEl={resourcesAnchorEl} 
+          open={resourcesMenuOpen} 
+          MenuListProps={{
+            'aria-labelledby': 'resources-button',
+          }}
+          onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Blog</MenuItem>
+            <MenuItem onClick={handleClose}>Podcast</MenuItem>
+          </Menu>
 
-          {/* <Grid container spacing={0} sx={{minWidth: '300px', height: '80px', backgroundColor: 'black' }}>
-            
-          </Grid> */}
-          <Box sx={{position: 'relative'}}>
-            <List>
-            <ListItem divider>
-                <ListItemButton onClick={() => setOpen(true)}>
-                  <ListItemText primary="Home"/>
-                  <ListItemIcon>{ ">"}</ListItemIcon>
-                </ListItemButton>
-              </ListItem>
-            </List>
-            <Collapse in={open}>
-            <List sx={{width: '300px', backgroundColor: '#1976d2'}}>
-              {array.map((listElm) => (
-                <ListItem divider>
-                <ListItemButton onClick={() => setOpen(false)}>
-                  <ListItemText primary={listElm} />
-                </ListItemButton>
-              </ListItem>
-              ))}
-            </List>
-            </Collapse>
-          </Box>
+          <Stack direction={'row'} spacing={2}>
+            <IconButton color="inherit">
+              <ShoppingBagOutlinedIcon>
 
-
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton  size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={'0'} color="error">
-                <ShoppingBagOutlinedIcon fontSize='large' />
-              </Badge>
+              </ShoppingBagOutlinedIcon>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-            //   aria-controls={menuId}
-              aria-haspopup="true"
-            //   onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle fontSize='large' />
+            <IconButton color="inherit"
+            id="account-button"
+            onClick={handleAccountClick} 
+            aria-controls={accountMenuOpen ? 'account-menu' : undefined}
+            aria-haspopup='true'
+            aria-expanded={accountMenuOpen ? 'true' : undefined}>
+              <AccountCircleIcon>
+              </AccountCircleIcon>
             </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-            //   aria-controls={mobileMenuId}
-              aria-haspopup="true"
-            //   onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon/>
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {/* {renderMobileMenu} */}
-      {/* {renderMenu} */}
-    </Grid>
-  );
+          </Stack>
+          <Menu id="account-menu" 
+          anchorEl={accountAnchorEl} 
+          open={accountMenuOpen} 
+          MenuListProps={{
+            'aria-labelledby': 'account -button',
+          }}
+          onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>But</MenuItem>
+            <MenuItem onClick={handleClose}>dasdt</MenuItem>
+          </Menu>
+        </Grid>
+        
+        
+      </Toolbar>
+    </AppBar>
+  )
 }
 
-export default AppBarCustom;
+export default MuiNavBar;
