@@ -1,4 +1,4 @@
-import { IStyle } from "../../entities/Stylization";
+import { IStyle } from "../../entities/sharedTypes";
 
 const CardStyle: IStyle = {
     width: "280px",

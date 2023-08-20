@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import SearchBar from "../../widgets/searchBar/searchBar";
 
-import { IStyle } from "../../entities/Stylization";
+import { IStyle } from "../../entities/sharedTypes";
 import {
     TypographyStyle,
     SearchBarStyle,
@@ -15,8 +15,8 @@ import {
 
 const HeroBanner: React.FC<IStyle> = (props) => {
     return (
-        <Container maxWidth={"xl"} sx={{ height: "714px" }}>
-            <Box sx={{ marginTop: "120px" }}>
+        <Container maxWidth={"xl"} sx={{ height: "564px" }}>
+            <Box sx={{ marginTop: "200px" }}>
                 <Typography sx={TypographyStyle} variant="h3" component="h1">
                     Fashion is like eating <br /> shouldn't stick the same menu
                 </Typography>
