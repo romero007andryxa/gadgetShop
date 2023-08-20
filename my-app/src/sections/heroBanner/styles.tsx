@@ -1,4 +1,4 @@
-import { IStyle } from "../../entities/Stylization";
+import { IStyle } from "../../entities/sharedTypes";
 
 const TypographyStyle: IStyle = {
     color: "#2B3445",
