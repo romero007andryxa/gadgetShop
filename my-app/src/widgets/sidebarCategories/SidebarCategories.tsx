@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from "react";
-import { SvgIconComponent } from "@mui/icons-material";
 import {
     List,
     ListSubheader,
@@ -32,20 +31,12 @@ const SidebarCategories = () => {
                 return (
                     <CategoryItem
                         key={index}
-                        Icon={category.Icon}
-                        name={category.name}
-                        nestedCategories={category.nestedCategories}
+                        {...category}
                         renderNestedItems={renderNestedItems}
                     />
                 );
             }
-            return (
-                <CategoryItem
-                    key={index}
-                    Icon={category.Icon}
-                    name={category.name}
-                />
-            );
+            return <CategoryItem key={index} {...category} />;
         });
     };
 
