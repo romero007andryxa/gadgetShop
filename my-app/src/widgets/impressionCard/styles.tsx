@@ -3,7 +3,8 @@ import { IStyle } from "../../entities/sharedTypes";
 const CardStyle: IStyle = {
     width: "280px",
     height: "100px",
-    m: 2,
+    mx: 5.7,
+    my: 2,
     boxShadow: "0px 0px 28px 0px rgba(3, 0, 71, 0.15)",
 };
 

@@ -12,7 +12,7 @@ const MainSection = () => {
             <Grid
                 container
                 alignItems="center"
-                justifyContent="space-between"
+                justifyContent="center"
                 sx={{ marginTop: "80px" }}
             >
                 <ImpressionCard

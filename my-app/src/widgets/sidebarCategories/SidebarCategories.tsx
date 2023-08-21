@@ -48,7 +48,7 @@ const SidebarCategories = () => {
     const categoryItems = useMemo(() => createCategoryItems(categories), []);
 
     return (
-        <Grid>
+        <Grid sx={{ marginTop: 2 }}>
             <List
                 sx={ListStyle}
                 component="nav"
