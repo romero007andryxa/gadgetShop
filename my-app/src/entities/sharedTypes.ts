@@ -10,4 +10,11 @@ interface ICategory {
     nestedCategories?: Array<Omit<ICategory, "nestedCategories">>;
 }
 
-export type { IStyle, ICategory };
+interface IImpressionCard {
+    Icon: SvgIconComponent;
+    style?: IStyle;
+    subtitle: string;
+    description: string;
+}
+
+export type { IStyle, ICategory, IImpressionCard };

@@ -30,7 +30,7 @@ const SidebarCategories = () => {
             if (category.nestedCategories) {
                 return (
                     <CategoryItem
-                        key={index}
+                        key={`${category.name}-${index}`}
                         {...category}
                         renderNestedItems={renderNestedItems}
                     />
@@ -40,15 +40,18 @@ const SidebarCategories = () => {
         });
     };
 
-    const topCategoryItems = useMemo(
+    const topCategoryItems: JSX.Element[] = useMemo(
         () => createCategoryItems(topCategories),
         []
     );
 
-    const categoryItems = useMemo(() => createCategoryItems(categories), []);
+    const categoryItems: JSX.Element[] = useMemo(
+        () => createCategoryItems(categories),
+        []
+    );
 
     return (
-        <Grid sx={{ marginTop: 2 }}>
+        <Grid sx={{ mt: 8 }}>
             <List
                 sx={ListStyle}
                 component="nav"

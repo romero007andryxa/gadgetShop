@@ -1,5 +1,5 @@
 import Card from "@mui/material/Card";
-import { IStyle } from "../../entities/sharedTypes";
+import { IImpressionCard, IStyle } from "../../entities/sharedTypes";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -10,18 +10,13 @@ import {
     TypographySubTitleStyle,
 } from "./styles";
 
-interface Props {
-    icon: React.ElementType;
-    style?: IStyle;
-    subtitle: string;
-    description: string;
-}
+interface Props extends IImpressionCard {}
 
 const ImpressionCard: React.FC<Props> = (props) => {
-    const Icon = props.icon;
+    const { Icon, subtitle, description, style } = props;
 
     return (
-        <Card sx={[CardStyle, { ...props.style }]}>
+        <Card sx={[CardStyle, { ...style }]}>
             <Grid container sx={{ height: "100%" }} justifyContent="start">
                 <Grid item>
                     <CardContent sx={{ pl: 3, pr: 0 }}>
@@ -35,7 +30,7 @@ const ImpressionCard: React.FC<Props> = (props) => {
                             component="div"
                             sx={TypographySubTitleStyle}
                         >
-                            {props.subtitle}
+                            {subtitle}
                         </Typography>
                         <Typography
                             variant="body2"
@@ -45,7 +40,7 @@ const ImpressionCard: React.FC<Props> = (props) => {
                                 { marginTop: "4px" },
                             ]}
                         >
-                            {props.description}
+                            {description}
                         </Typography>
                     </CardContent>
                 </Grid>
